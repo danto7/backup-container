@@ -23,6 +23,9 @@ variables=(BACKUP_DIR RESTIC_REPOSITORY RESTIC_PASSWORD)
 if [[ "${RESTIC_REPOSITORY:0:3}" = "b2:" ]]; then
   variables=("${variables[@]}" B2_ACCOUNT_ID B2_ACCOUNT_KEY)
 fi
+if [[ "${RESTIC_REPOSITORY:0:3}" = "s3:" ]]; then
+  variables=("${variables[@]}" AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY)
+fi
 
 for var in "${variables[@]}"; do
   if [[ -z "$var" ]]; then
