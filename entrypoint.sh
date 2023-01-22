@@ -33,7 +33,7 @@ done
 
 if ! restic snapshots > /dev/null 2>&1 ; then
   info "Detected new repository. Initializing ..."
-  eae restic init 
+  eae restic --verbose init 
 fi
 
 find_cmd=(find "$BACKUP_DIR" -maxdepth 1 -mindepth 1)
