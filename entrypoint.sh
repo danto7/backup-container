@@ -34,6 +34,7 @@ for var in "${variables[@]}"; do
   fi
 done
 
+eae restic version
 if ! restic snapshots > /dev/null 2>&1 ; then
   info "Detected new repository. Initializing ..."
   eae restic --verbose init 
